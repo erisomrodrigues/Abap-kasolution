@@ -9,22 +9,23 @@ DATA V_RESULT TYPE P DECIMALS 2.
 CASE P_OPER.
   WHEN '+'.
     V_RESULT = P_VALOR1 + P_VALOR2.
-    WRITE:/ 'O Resultado é :',V_RESULT.
+    WRITE:/ 'O Resultado é :'(003),V_RESULT.
   WHEN '-'.
     V_RESULT = P_VALOR1 - P_VALOR2.
-       WRITE:/ 'O Resultado é :',V_RESULT.
+       WRITE:/ 'O Resultado é :'(003),V_RESULT.
   WHEN '*'.
     V_RESULT = P_VALOR1 * P_VALOR2.
-       WRITE:/ 'O Resultado é :',V_RESULT.
+       WRITE:/ 'O Resultado é :'(003),V_RESULT.
   WHEN '/'.
     IF P_VALOR2 IS INITIAL.
-       WRITE:/ 'DIVISÃO POR ZERA NÃO É PERMITIDO'.
+    MESSAGE 'DIVISÃO POR ZERA NÃO É PERMITIDO'(001) TYPE 'I'.
     V_RESULT = P_VALOR1 / P_VALOR2.
-       WRITE:/ 'O Resultado é :',V_RESULT.
+       WRITE:/ 'O Resultado é :'(003),V_RESULT.
        STOP.
     ENDIF.
     WHEN OTHERS.
-      WRITE:/ 'OPERADOR INVALIDO'.
+*      WRITE:/ 'OPERADOR INVALIDO'.
+   MESSAGE 'OPERADOR INVALIDO'(002) TYPE 'I'.
 
 
 
