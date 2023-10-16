@@ -21,6 +21,7 @@ CASE P_OPER.
        WRITE:/ 'DIVISÃO POR ZERA NÃO É PERMITIDO'.
     V_RESULT = P_VALOR1 / P_VALOR2.
        WRITE:/ 'O Resultado é :',V_RESULT.
+       STOP.
     ENDIF.
     WHEN OTHERS.
       WRITE:/ 'OPERADOR INVALIDO'.
