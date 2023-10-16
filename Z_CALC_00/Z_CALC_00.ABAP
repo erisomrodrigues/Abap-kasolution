@@ -1,0 +1,30 @@
+REPORT Z_CALC_00.
+
+PARAMETERS: P_VALOR1 TYPE I,
+            P_VALOR2 TYPE I,
+            P_OPER   TYPE C LENGTH 2.
+
+DATA V_RESULT TYPE P DECIMALS 2.
+
+CASE P_OPER.
+  WHEN '+'.
+    V_RESULT = P_VALOR1 + P_VALOR2.
+    WRITE:/ 'O Resultado é :',V_RESULT.
+  WHEN '-'.
+    V_RESULT = P_VALOR1 - P_VALOR2.
+       WRITE:/ 'O Resultado é :',V_RESULT.
+  WHEN '*'.
+    V_RESULT = P_VALOR1 * P_VALOR2.
+       WRITE:/ 'O Resultado é :',V_RESULT.
+  WHEN '/'.
+    IF P_VALOR2 IS INITIAL.
+       WRITE:/ 'DIVISÃO POR ZERA NÃO É PERMITIDO'.
+    V_RESULT = P_VALOR1 / P_VALOR2.
+       WRITE:/ 'O Resultado é :',V_RESULT.
+    ENDIF.
+    WHEN OTHERS.
+      WRITE:/ 'OPERADOR INVALIDO'.
+
+
+
+ENDCASE.
