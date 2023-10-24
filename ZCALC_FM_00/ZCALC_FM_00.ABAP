@@ -25,7 +25,9 @@ CASE P_OPER.
       MESSAGE 'EXPOENTE MAIOR QUE 5' TYPE 'I'.
       STOP.
     ENDIF.
-    WRITE:/ 'O Resultado é: ', V_RESULT_I.
+
+    V_RESULT = V_RESULT_I.
+    WRITE:/ 'O Resultado é: ', V_RESULT.
 
   WHEN '%'.
     PERFORM CALC_PERC USING P_VALOR1
